@@ -1,0 +1,86 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<div class="form-wrapper">
+
+  {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ message }}
+    </div>
+  {% endfor %}
+
+  <h1>Sign Up</h1>
+
+  <form method="POST" action="/">
+    {{ form.csrf_token }}
+
+    <fieldset class="points">
+      {{ form.points.label }}
+      {{ form.points(placeholder='500') }}
+      {% if form.points.errors %}
+        <ul class="errors">
+          {% for error in form.points.errors %}
+            <li>{{ error }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+    </fieldset>
+
+    <fieldset class="time">
+      {{ form.time.label }}
+      {{ form.time(placeholder='75') }}
+      {% if form.time.errors %}
+        <ul class="errors">
+          {% for error in form.time.errors %}
+            <li>{{ error }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+    </fieldset>
+
+    <div class="submit-button">
+      {{ form.submit }}
+    </div>
+
+  </form>
+</div>
+{% endblock %}
+
+<!-- {% block content1 %}
+<form action="" method="POST">
+  <div>
+    <div>
+      <label for="points">Points</label>
+      <input id="points" type="text" name="points">
+    </div>
+    <div>
+      <label for="time">Time</label>
+      <input id="time" type="text" name="time">
+    </div>
+    <div>
+      <button id="submit-button">Submit</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+ -->
+{% block result_content %}
+    <div class="container">
+      {% for result in results %}
+        <ul id="result.resultname">
+          <li>
+              <span class="field-name">result:</span>
+              <span class="field-value">{{ result.points }}</span>
+          </li>
+          <li>
+              <span class="field-name">Email:</span>
+              <span class="field-value">{{ result.time }}</span>
+          </li>
+          <li>
+              <span class="field-name">Created:</span>
+              <span class="field-value">{{ result.created }}</span>
+          </li>
+        </ul>
+      {% endfor %}
+    </div>
+{% endblock %}
