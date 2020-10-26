@@ -4,12 +4,11 @@
 
 label { display: block; }
 
-.fifty-fifty {
-    display: flex;
-    justify-content: space-evenly;
+.user-info {
+    text-align: right;
 }
 
-.fifty-fifty > div { padding: 0 100px; }
+.user-info > p { margin-bottom: 0px; }
 
 .chart-wrapper {
     border-right: 1px solid #000;

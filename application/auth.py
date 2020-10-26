@@ -5,7 +5,7 @@ from flask import (
 from flask_login import login_required, logout_user, current_user, login_user
 from functools import wraps
 from .forms import LoginForm, SignupForm
-from .models import db, User
+from .models import db, User, Result
 from . import login_manager
 
 
@@ -56,6 +56,7 @@ def login():
         'login.html',
         form=form,
         title='Log in.',
+        results=Result.query.all(),
         template='login-page',
         body="Log in with your User account."
     )
@@ -85,6 +86,7 @@ def signup():
     return render_template(
         'signup.html',
         title='Create an Account.',
+        results=Result.query.all(),
         form=form,
         template='signup-page',
         body="Sign up for a user account."

@@ -8,11 +8,17 @@
   </head>
   <body>
     <div class="container">
-      <h1>Scrabble</h1>
-      {% if current_user.is_authenticated %}
-        <p>Hi {{ current_user.email }}!</p>
-        <a href="{{ url_for('auth_bp.logout') }}">Log out</a>
-      {% endif %}
+      <div class="row">
+        <div class="col-md-10">
+          <h1>Scrabble</h1>
+        </div>
+        <div class="col-md-2 user-info">
+          {% if current_user.is_authenticated %}
+            <p>Hi {{ current_user.email }}!</p>
+            <a href="{{ url_for('auth_bp.logout') }}">Log out</a>
+          {% endif %}
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-6 chart-wrapper">
           <canvas id="myChart" width="400" height="400"></canvas>
