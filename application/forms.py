@@ -49,13 +49,15 @@ class ResultForm(FlaskForm):
     points = IntegerField(
         'Points',
         validators=[
-            DataRequired(),
+            DataRequired(message="What was the SUM of scores in the game?\
+                [Integer]"),
         ]
     )
     time = IntegerField(
         'Time',
         validators=[
-            DataRequired(),
+            DataRequired(message="How many minutes did the game last?\
+                [Integer]"),
         ]
     )
     submit = SubmitField('Submit')

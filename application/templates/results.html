@@ -46,35 +46,17 @@
 </div>
 {% endblock %}
 
-<!-- {% block content1 %}
-<form action="" method="POST">
-  <div>
-    <div>
-      <label for="points">Points</label>
-      <input id="points" type="text" name="points">
-    </div>
-    <div>
-      <label for="time">Time</label>
-      <input id="time" type="text" name="time">
-    </div>
-    <div>
-      <button id="submit-button">Submit</button>
-    </div>
-  </div>
-</form>
-{% endblock %}
- -->
 {% block result_content %}
     <div class="container">
       {% for result in results %}
         <ul id="result.resultname">
           <li>
-              <span class="field-name">result:</span>
+              <span class="field-name">Points:</span>
               <span class="field-value">{{ result.points }}</span>
           </li>
           <li>
-              <span class="field-name">Email:</span>
-              <span class="field-value">{{ result.time }}</span>
+              <span class="field-name">Time:</span>
+              <span class="field-value">{{ result.time }} minutes</span>
           </li>
           <li>
               <span class="field-name">Created:</span>

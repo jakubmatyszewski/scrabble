@@ -1,12 +1,10 @@
 from flask import (
     Blueprint,
-    request,
     render_template,
     redirect,
     url_for,
-    # make_response,
 )
-from flask_login import logout_user, current_user, login_required
+from flask_login import current_user, login_required
 from datetime import datetime
 from .forms import ResultForm
 from .models import db, Result
